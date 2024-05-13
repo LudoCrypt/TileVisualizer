@@ -3,15 +3,13 @@
  
 **Using the Visualizer:**
 
-By default, the visualizer will display the 'crossbox wide' tile with the outskirt palette. To view your own tiles, click and drag a file into the program window. It will attempt to find the init file in the folder, if one does not exist, you can drag in your own. If nothing goes wrong, you'll see your tile.
+By default, the visualizer will display the 'crossbox wide' tile with the outskirt palette. To view your own tiles, click and drag a file into the program window. It will attempt to find the init file in the folder, if one does not exist, you can drag in your own. If nothing goes wrong, you'll see your tile. To use your own palette, simply drag in any 32x16 image. It assumes all 32x16 images are treated as palettes.
 
 **Keybinds:**
 
-Press 'a' and 'd' to go to the previous/next tile in the init.txt.
-
-Press 'l' to change the view layer (changes the palette).
-
-Press space to pause the random variation timer. (If a tile has rnd variations, it will cycle every second).
+- Press 'a' and 'd' to go to the previous/next tile in the init.txt.
+- Press 'l' to change the view layer (changes the palette).
+- Press space to pause the random variation timer. (If a tile has rnd variations, it will cycle every second).
 
 **Camera Control:**
 
