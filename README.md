@@ -3,7 +3,7 @@
  
 **Using the Visualizer:**
 
-By default, the visualizer will display the 'crossbox wide' tile with the outskirt palette. To view your own tiles, click and drag a file into the program window. It will attempt to find the init file in the folder, if one does not exist, you can drag in your own. If nothing goes wrong, you'll see your tile. To use your own palette, simply drag in any 32x16 image. It assumes all 32x16 images are treated as palettes.
+By default, the visualizer will display the 'crossbox wide' tile with the outskirt palette. To view your own tiles, click and drag a file into the program window. It will attempt to find the init file in the folder, if one does not exist, you can drag in your own. If nothing goes wrong, you'll see your tile. To use your own palette, simply drag in any 32x16 image. It assumes all 32x16 images are treated as palettes. The title of the window will show the currently displaying tile.
 
 **Keybinds:**
 
@@ -24,3 +24,4 @@ By default, the visualizer will display the 'crossbox wide' tile with the outski
 - For any rendering issues, assume there's something wrong with the tile.
 - If you're certain your tile is correct, create an issue report with the tile and the associated init line.
 - If said tile is private and should not be leaked, DM me on discord @LudoCrypt.
+- I have not tested this on macos or linux as of yet.
