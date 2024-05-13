@@ -1,6 +1,28 @@
 # TileVisualizer
  Visualize Tiles for Rain World! If youre looking through the code, its not optimized or anything. I just tried getting it to work lol.
  
-## How do I use this?
+**Using the Visualizer:**
 
-Great question! By default, the visualizer will display crossbox wide in the outskirst palette. However, to view your own tiles, simply click and drag a file into the program. This will automatically look for your init file, and if it can't find one, it won't do anything. However, you can drag in a manual init file yourself if anything goes wrong. Anywho, if the tile is valid and the init is valid and the tile is in the init, then it will attempt to load the tile. If anything goes wrong, it wont do anything. But if all goes well, you should see your tile! After you've dragged in your own tile, you should be able to press 'a' and 'd' to go to the next/previous tile in the init. Note that this goes in the order of the init file, not the order of the folder. You can also press 'l' to change the 'layer' to use further back colors. If your tile has random variations, it will switch to a different one every second, but you can press space to pause this timer. To move around the camera and view it from just how you want it, simply click and drag to move around the perspective. If you scroll, it will adjust the depth, such that the further your mouse is from the center, the further away the layers in the back go. If you right click and move your mouse up/down it will zoom in/out, so you can see more or less of your tile. If you scroll while holding left shift, it will rotate the back layers. Do note that none of these camera tricks have been compared against the actual level editor, this is just what was easiest to do. You don't need 100% accuracy for a simple visualizer like this. Anywho so if anything renders weird, then assume its something wrong with the tile. If you know for a fact that your tile is correct, create an issue report with the tile and the init line associated with it. If it is private and you don't want it leaked, dm me on discord @LudoCrypt.
+By default, the visualizer will display the 'crossbox wide' tile with the outskirt palette. To view your own tiles, click and drag a file into the program window. It will attempt to find the init file in the folder, if one does not exist, you can drag in your own. If nothing goes wrong, you'll see your tile.
+
+**Keybinds:**
+
+Press 'a' and 'd' to go to the previous/next tile in the init.txt.
+
+Press 'l' to change the view layer (changes the palette).
+
+Press space to pause the random variation timer. (If a tile has rnd variations, it will cycle every second).
+
+**Camera Control:**
+
+- Click and drag to move around the perspective.
+- Scroll to adjust the strength of the parallax.
+- Right-click and drag your mouse up/down to zoom in/out.
+- While holding left shift, scroll to tilt the layers.
+
+**Note:**
+
+- These camera tricks have not been compared against the actual level editor. They are simply what was easiest to implement.
+- For any rendering issues, assume there's something wrong with the tile.
+- If you're certain your tile is correct, create an issue report with the tile and the associated init line.
+- If said tile is private and should not be leaked, DM me on discord @LudoCrypt.
