@@ -58,14 +58,15 @@ vec2 uvOf(vec2 uv, out vec2 uvScale, out int r, out float curRand) {
 	float ar = iResolution.x / iResolution.y;
 	float pieceAr = float(sz.x) / float(sz.y);
 	
-	float idealWidth = float((int(floor(sz.x)) + (2 * int(floor(bfTiles)))) * 20) / float(size.x);
+	float idealWidthScale = float((int(floor(sz.x)) + (2 * int(floor(bfTiles)))) * 20) / float(size.x);
+	idealWidthScale *= rnd * (effectColor > 1.0 ? 2.0 : 1.0);
 	
 	uvScale = vec2(ar / pieceAr / float(rnd), normalHeight);
 	if (ar / pieceAr < 1.0) {
 		uvScale = vec2(1.0 / float(rnd), normalHeight / (ar / pieceAr));
 	}
 	
-	uvScale.x *= idealWidth;
+	uvScale.x *= idealWidthScale;
 	
 	if (effectColor > 1.0) {
 		uvScale.x /= 2.0;
@@ -99,6 +100,8 @@ void main() {
 	ivec2 size = textureSize(iChannel0, 0);
 	float topOffset = 1.0 / float(size.y);
 	int idealHeight = 1 + (int(floor(sz.y)) + (2 * int(floor(bfTiles)))) * int(floor(repeatLSize)) * 20;
+	float idealWidthScale = float((int(floor(sz.x)) + (2 * int(floor(bfTiles)))) * 20) / float(size.x);
+	float idealHeightScale = float(1 + (int(floor(sz.y)) + (2 * int(floor(bfTiles)))) * int(floor(repeatLSize)) * 20) / float(size.y);
 	float previewOffset = float(size.y - idealHeight) / float(size.y);
 	float layerHeight = (20.0 * rlsz.y) / float(size.y);
 	float verticalOffset = (rlsz.y * topOffset) * 20.0;
@@ -130,7 +133,7 @@ void main() {
 			uvToUse = rotatePoint(uvToUse, uvOf05, backRotation * ((totalDepth - curDepth - 5) / totalDepth), (uvScale.y / uvScale.x) * ar);
 			
 			vec2 tileSample = vec2(uvToUse.x, uvToUse.y + previewOffset + layerHeight * float(i));
-			vec2 mouseOffset = vec2((iMouse.x - 0.5), iMouse.y - 0.5) / vec2(cameraTiltScale, cameraTiltScale);
+			vec2 mouseOffset = vec2((iMouse.x - 0.5) / idealWidthScale, (iMouse.y - 0.5) / idealHeightScale) / vec2(cameraTiltScale, cameraTiltScale);
 			vec2 depthOffset = vec2((float(repeatLSize - curDepth) / depthScale), (float(repeatLSize - curDepth) / depthScale)) / vec2(float(rnd), 1.0);
 			vec2 fullOffset = mouseOffset * depthOffset;
 			
