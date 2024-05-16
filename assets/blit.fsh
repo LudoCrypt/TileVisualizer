@@ -58,10 +58,14 @@ vec2 uvOf(vec2 uv, out vec2 uvScale, out int r, out float curRand) {
 	float ar = iResolution.x / iResolution.y;
 	float pieceAr = float(sz.x) / float(sz.y);
 	
+	float idealWidth = float((int(floor(sz.x)) + (2 * int(floor(bfTiles)))) * 20) / float(size.x);
+	
 	uvScale = vec2(ar / pieceAr / float(rnd), normalHeight);
 	if (ar / pieceAr < 1.0) {
 		uvScale = vec2(1.0 / float(rnd), normalHeight / (ar / pieceAr));
 	}
+	
+	uvScale.x *= idealWidth;
 	
 	if (effectColor > 1.0) {
 		uvScale.x /= 2.0;
