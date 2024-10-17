@@ -17,7 +17,7 @@ buildscript {
 allprojects {
     apply plugin: "eclipse"
 
-    version = '1.1'
+    version = '1.2'
     ext {
         appName = "Tile Visualizer"
         gdxVersion = '1.12.1'
