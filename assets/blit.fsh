@@ -151,10 +151,21 @@ void main() {
 			}
 			
 			if (col != vec3(1.0)) {
-				vec2 palSample = vec2(float(curDepth + sublayer) / 32.0, (((col.x) + (col.y * 2.0) + (col.z * 3.0)) / 16.0) + (1.0 / 8.0));
-				palSample.y = 1.0 - palSample.y;
+				float palY = col.r * 3.0 + col.g * 2.0 + col.b + 1.5;
+				palY /= 16.0;
+				
+				int trueDepth = -(curDepth + int(mod(-sublayer + 20, 30))) - 1;
+				trueDepth = int(mod(trueDepth, 30));
+				
+				float palX = float(trueDepth);
+				palX /= 32.0;
 
-				vec3 paltex = texture2D(iChannel1, palSample).xyz;
+				vec3 paltex = texture2D(iChannel1, vec2(palX, palY)).xyz;
+				
+				vec3 fogCol = texture2D(iChannel1, vec2(1.5 / 32.0, 0.5 / 16.0)).xyz;
+				float fogAmount = texture2D(iChannel1, vec2(9.5 / 32.0, 0.5 / 16.0)).x;
+				
+				paltex = mix(paltex, fogCol, (fogAmount * float(trueDepth)) / 30.0);
 				
 				FragColor = vec4(paltex, 1.0);
 				hit = true;
